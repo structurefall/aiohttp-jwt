@@ -75,7 +75,7 @@ def check_permissions(
 
             user_scopes = payload.get(permissions_property, [])
 
-            if not isinstance(user_scopes, collections.Iterable):
+            if not isinstance(user_scopes, collections.abc.Iterable):
                 raise web.HTTPForbidden(reason='Invalid permissions format')
 
             if not comparison(scopes, user_scopes):
